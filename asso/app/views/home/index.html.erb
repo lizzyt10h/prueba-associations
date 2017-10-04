@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Asso</title>
+    </head>
+    
+    <body>
+    <h1> Mallas</h1>
+    <%= @malla.name %>
+    <% @malla.semesters.each do |sem| %>
+        <p>Semestre No.<%= sem.number %></p>
+    <% end %>
+    </body>
+</html>
