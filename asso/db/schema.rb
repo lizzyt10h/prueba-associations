@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171003200553) do
+ActiveRecord::Schema.define(version: 20171004031923) do
 
   create_table "mallas", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -20,22 +20,29 @@ ActiveRecord::Schema.define(version: 20171003200553) do
   end
 
   create_table "semester_has_subjects", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "semester_id"
+    t.integer  "subject_id"
   end
+
+  add_index "semester_has_subjects", ["semester_id"], name: "index_semester_has_subjects_on_semester_id"
+  add_index "semester_has_subjects", ["subject_id"], name: "index_semester_has_subjects_on_subject_id"
 
   create_table "semesters", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "malla_id"
     t.integer  "number"
+    t.integer  "malla_id"
   end
 
-  add_index "semesters", ["malla_id"], name: "semester_malla_id"
+  add_index "semesters", ["malla_id"], name: "index_semesters_on_malla_id"
 
   create_table "subjects", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "name"
+    t.integer  "credits"
   end
 
 end

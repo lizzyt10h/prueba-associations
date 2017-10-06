@@ -8,7 +8,13 @@
     <h1> Mallas</h1>
     <%= @malla.name %>
     <% @malla.semesters.each do |sem| %>
-        <p>Semestre No.<%= sem.number %></p>
+        <h3>Semestre No.<%= sem.number %></h3>
+        <br>
+        <% sem.subjects.each do |subj| %>
+            <p>Materia: <%= subj.name %></p>
+            <p>Créditos: <%= subj.credits %></p>
+            <br>
+        <% end %>
     <% end %>
     </body>
 </html>
