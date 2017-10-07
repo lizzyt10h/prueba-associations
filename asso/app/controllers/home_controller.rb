@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
     def index
-        @malla = Malla.find_by name: 'Ingeniería de Sistemas'
+        @career = Career.find_by name: 'Ingeniería de Sistemas'
+        @malla = @career.mallas.find_by name: 'Ingeniería de Sistemas'
     end
 end
