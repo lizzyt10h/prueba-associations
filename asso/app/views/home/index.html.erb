@@ -13,6 +13,7 @@
         <% sem.subjects.each do |subj| %>
             <p>Materia: <%= subj.name %></p>
             <p>Créditos: <%= subj.credits %></p>
+            <p>Tipología: <%= subj.career_has_subjects.find_by(career_id: @career.id).typology%></p>
             <br>
         <% end %>
     <% end %>
