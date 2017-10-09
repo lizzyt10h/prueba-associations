@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171007035716) do
+ActiveRecord::Schema.define(version: 20171009183434) do
 
   create_table "career_has_subjects", force: :cascade do |t|
     t.string   "typology"
@@ -28,6 +28,13 @@ ActiveRecord::Schema.define(version: 20171007035716) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "follows", force: :cascade do |t|
+    t.integer  "follower_id", null: false
+    t.integer  "followee_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "mallas", force: :cascade do |t|
@@ -63,6 +70,12 @@ ActiveRecord::Schema.define(version: 20171007035716) do
     t.datetime "updated_at", null: false
     t.string   "name"
     t.integer  "credits"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
