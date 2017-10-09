@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171009183434) do
+ActiveRecord::Schema.define(version: 20171009192859) do
 
   create_table "career_has_subjects", force: :cascade do |t|
     t.string   "typology"
@@ -45,6 +45,13 @@ ActiveRecord::Schema.define(version: 20171009183434) do
   end
 
   add_index "mallas", ["career_id"], name: "index_mallas_on_career_id"
+
+  create_table "requisites", force: :cascade do |t|
+    t.integer  "follower_id", null: false
+    t.integer  "followee_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "semester_has_subjects", force: :cascade do |t|
     t.datetime "created_at",  null: false

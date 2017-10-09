@@ -42,11 +42,18 @@ sem.subjects << subj
 =end
 
 
-#=begin
+=begin
 # *** Prueba de asociaciones bidireccionales de muchos a muchos con modelos User y Follow ***
 
 user = User.create({name: "Lizzy"})
 fllwr = User.create({name: "Juan"})
 
 user.followers << fllwr
-#=end
+=end
+
+# *** Asociacion bidireccional de muchos a muchos con modelos CareerHasSubject y Requisite ***
+
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(name: 'Ingeniería de Sistemas').id, subject_id: Subject.find_by(name: 'Cálculo 1').id)
+chs_prerrequisito = CareerHasSubject.find_by(career_id: Career.find_by(name: 'Ingeniería de Sistemas').id, subject_id: Subject.find_by(name: 'Intro').id)
+
+chs_materia.followers << chs_prerrequisito
