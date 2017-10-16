@@ -46,25 +46,6 @@ ActiveRecord::Schema.define(version: 20171009192859) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "semester_has_subjects", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "semester_id"
-    t.integer  "subject_id"
-  end
-
-  add_index "semester_has_subjects", ["semester_id"], name: "index_semester_has_subjects_on_semester_id"
-  add_index "semester_has_subjects", ["subject_id"], name: "index_semester_has_subjects_on_subject_id"
-
-  create_table "semesters", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "number"
-    t.integer  "malla_id"
-  end
-
-  add_index "semesters", ["malla_id"], name: "index_semesters_on_malla_id"
-
   create_table "subjects", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
